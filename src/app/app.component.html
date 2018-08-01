@@ -1,26 +1,44 @@
 <div class="container">
-    <h1 class="header">
+    <!-- <h1 class="header">
         Finding Foods
     </h1>
-    <!-- <div class="site-description">
-        <p>Having trouble finding an item? Not sure what stores to check? Finding Foods is here to help!</p>
-        <p>Enter your location and the name or barcode of the item you're looking for, and we will search through our databases to find which stores near you carry that product, and if possible, where to find it in that store!</p>
-    </div> -->
 
     <div class="search form-group">
         <label for="zip">Zip Code:</label><br>
         <input type="text" name="zip" class="form-control" placeholder="Zip Code" [(ngModel)]="zip">
+        <button class="btn btn-primary" (click)=searchStore()>Search</button>
+        <div class="response">
+            <p *ngIf="storeList.length > 0"><strong>Nearby Stores:</strong></p>
+            <ul>
+                <li *ngFor="let store of storeList">{{ store }}</li>
+            </ul>
+        </div>
+
         <br><br>
+    <form>
         <label for="item">What are you looking for?</label><br>
         <input type="text" name="item" class="form-control" placeholder="eggs, milk, guarana..." [(ngModel)]="itemName">
         <button class="btn btn-primary" (click)=searchItem()>Search</button>
+    </form>
+</div> -->
+
+    <!-- popup window for results -->
+    <div class="popup">
+        <app-dialog class="app-dialog"></app-dialog>
     </div>
 
-    <div class="response">
-        <p *ngIf="itemList.length > 0"><strong>Items Found:</strong></p>
+
+    <!-- <div class="response" *ngIf="response">
         <ul>
-            <li *ngFor="let item of itemList">{{ item }}</li>
+            <li *ngFor="let item of response">
+                {{ item.name }}
+                <br>{{ item.upc }}
+                <br><img src={{item.imageEntities[item.imageEntities.length-1].thumbnailImage}} alt="">
+            </li>
         </ul>
-    </div>
+    </div> -->
+
+
+
 
 </div>

@@ -1,0 +1,36 @@
+.my-dialog {
+
+}
+
+.my-dialog-title {
+    text-align: center;
+}
+
+/* .item-list {
+    background-color: #e1f2ed;
+    margin: 1px;
+} */
+
+/* .item-list:active {
+    background-color: #f2e1e3;
+} */
+
+/* .item-list:focus {
+    background-color: #e1e1f2;
+} */
+
+.item-button {
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+.item-button:hover {
+    opacity: .5;
+}

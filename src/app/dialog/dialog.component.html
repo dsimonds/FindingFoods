@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title><h1>Finding Foods</h1></mat-card-title>
+    </mat-card-header>
+    <hr>
+
+    <mat-card-content>
+        <form class="" action="index.html" method="post">
+
+            <label for="zip">Zip Code:</label><br>
+            <input class="form-control" type="text" name="zip" placeholder="Zip Code" [(ngModel)]="zip">
+
+            <br>
+
+            <label for="item">What are you looking for?</label><br>
+            <input type="text" name="item" class="form-control" placeholder="eggs, milk, guarana..." [(ngModel)]="itemName">
+
+            <!-- <button mat-raised-button (click)="openDialog()">Open Dialog</button> -->
+            <button mat-raised-button (click)="searchItem()">Search Items</button>
+
+
+        </form>
+        <hr>
+        <strong>Result: {{dialogResult}}</strong>
+    </mat-card-content>
+</mat-card>

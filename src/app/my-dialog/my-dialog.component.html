@@ -1,0 +1,43 @@
+<div class="my-dialog">
+    <h2 class="my-dialog-title" mat-dialog-title>Select Item</h2>
+    <hr>
+    <mat-dialog-content>
+        Choose which item you are looking for
+
+        <br>
+        <br>
+
+        <!-- <strong>{{ data }}</strong> -->
+
+        <br>
+        <br>
+
+        <!-- <form action="" class="itemSelect">
+            <div class="row">
+                <div *ngFor="let item of data" class="col-sm-4">
+                    <label for={{item.itemId}}>
+                        <input type="radio" value={{item.itemId}} ng-model="selected">
+                        <strong>{{ item.name }}</strong>
+                    </label>
+                        <br>{{ item.upc }}
+                        <br><img src={{item.imageEntities[item.imageEntities.length-1].thumbnailImage}} alt="">
+                </div>
+            </div>
+        </form> -->
+        <div class="row">
+            <div *ngFor="let item of data" class="col-sm-4">
+                <button class="item-button" (click)=searchLocalStore(item.itemId,item.name)>
+                    <strong>{{ item.name }}</strong>
+                    <br>{{ item.upc }}
+                    <br><img src={{item.imageEntities[item.imageEntities.length-1].thumbnailImage}} alt="">
+                </button>
+            </div>
+        </div>
+
+    </mat-dialog-content>
+    <hr>
+    <mat-dialog-actions>
+        <button mat-raised-button (click)="onCloseConfirm()">Confirm</button>
+        <button mat-raised-button (click)="onCloseCancel()">Cancel</button>
+    </mat-dialog-actions>
+</div>
