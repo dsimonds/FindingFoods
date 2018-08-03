@@ -1,0 +1,2 @@
+Ideas
+Store search term and item selected in MS SQL to track most what people search to find what item, by location

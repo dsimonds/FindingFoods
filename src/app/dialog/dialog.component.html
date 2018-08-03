@@ -1,26 +1,60 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title><h1>Finding Foods</h1></mat-card-title>
-    </mat-card-header>
-    <hr>
+<div>
+    <div class="error" *ngIf="isError">
+        <strong>Error:</strong><br>
+        {{ errorMessage }}
+    </div>
 
-    <mat-card-content>
+    <div class="title">
+        <h1 class="title-text">Finding Foods</h1>
+        <hr class="title-hr">
+    </div>
+
+    <div class="form">
+
         <form class="" action="index.html" method="post">
 
-            <label for="zip">Zip Code:</label><br>
-            <input class="form-control" type="text" name="zip" placeholder="Zip Code" [(ngModel)]="zip">
+            <label for="zip" class="input-label">Zip Code:</label><br>
+            <!-- <input class="form-control text-input" type="text" name="zip" placeholder="Zip Code" [(ngModel)]="zip"> -->
+            <input class="text-input text-input-test" type="text" name="zip" placeholder="Zip Code" [(ngModel)]="zip">
+
 
             <br>
 
-            <label for="item">What are you looking for?</label><br>
-            <input type="text" name="item" class="form-control" placeholder="eggs, milk, guarana..." [(ngModel)]="itemName">
+            <label for="item" class="input-label">What are you looking for?</label><br>
+            <input type="text" name="item" class="text-input text-input-test" placeholder="eggs, milk, guarana..." [(ngModel)]="itemName">
 
-            <!-- <button mat-raised-button (click)="openDialog()">Open Dialog</button> -->
-            <button mat-raised-button (click)="searchItem()">Search Items</button>
+            <br>
 
+            <button class="search-button" (click)="action()">Search Items</button>
+
+            <p class="lead loading" *ngIf="loading">...loading</p>
 
         </form>
+    </div>
+
+    <!-- if item is found -->
+    <div class="found" *ngIf="localItemResults != 0 && localItemResults.inStore && localItemResults.common.storePickupAvailable">
+        <strong>Item:</strong> {{ localItemResults.common.name }}
+        <br>
+        <strong>Location:</strong> {{ locationResults.name }}<br>
+        &#8226; {{ locationResults.streetAddress }}, {{ locationResults.city }}, {{ locationResults.zip }}
         <hr>
-        <strong>Result: {{dialogResult}}</strong>
-    </mat-card-content>
-</mat-card>
+        <span *ngIf="localItemResults.inStore.inventory.available"><strong>In Stock:</strong> Yes</span>
+        <span *ngIf="!localItemResults.inStore.inventory.available"><strong>In Stock:</strong> No</span>
+
+        <br>
+        <strong>Quantity:</strong> {{ localItemResults.inStore.inventory.quantity }}<br>
+        <strong>Aisle:</strong> {{ localItemResults.inStore.location.aisles }}<br>
+        <strong>Price:</strong> ${{ localItemResults.inStore.price.ppuCents }}<br>
+    </div>
+
+    <!-- if item is not found -->
+    <div class="not-found" *ngIf="localItemResults != 0 && (!localItemResults.inStore || !localItemResults.common.storePickupAvailable)">
+        <strong>Item not available at the selected location</strong>
+        <br>
+        <strong>Item:</strong> {{ localItemResults.common.name }}
+        <br>
+        <strong>Location:</strong> {{ locationResults.name }}
+    </div>
+
+</div>

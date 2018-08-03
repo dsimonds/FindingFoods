@@ -26,7 +26,7 @@
         </form> -->
         <div class="row">
             <div *ngFor="let item of data" class="col-sm-4">
-                <button class="item-button" (click)=searchLocalStore(item.itemId,item.name)>
+                <button class="item-button" (click)=searchLocalStore(item.upc)>
                     <strong>{{ item.name }}</strong>
                     <br>{{ item.upc }}
                     <br><img src={{item.imageEntities[item.imageEntities.length-1].thumbnailImage}} alt="">

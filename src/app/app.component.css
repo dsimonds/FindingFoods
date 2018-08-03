@@ -1,3 +1,45 @@
-.app-dialog {
-    background-color: red;
+.landing {
+    min-height: 100vh;
+    text-align: center;
+    /* background-color: #fcfcfc; */
+    /* background: linear-gradient(to bottom right, #f7f7f7 50%, #fcfcfc 50%); */
+    background: linear-gradient(135deg, #f7f7f7 50%, #fcfcfc 50%);
+
+
+}
+
+.landing > p:first-child {
+    font-size: 5em;
+
+}
+
+.landing > p:nth-child(2) {
+    font-size: 3em;
+}
+
+.down-arrow {
+    font-size: 4em;
+    color: #FF6363;
+    position: absolute;
+    bottom: 30px;
+}
+
+.down-arrow:hover {
+    bottom: 35px;
+}
+
+.container {
+    /* min-height: 100vh; */
+    /* background-color: #FFFFE2; */
+    /* background-color: #4B5962; */
+    /* opacity: .97; */
+
+
+}
+.main-container {
+    /* background: url("../assets/fruits-grocery-bananas-market-21-9.jpg"); */
+    /* background: url("../assets/pexels-photo-811107.jpeg"); */
+    /* background-size: cover; */
+    background-color: #f7f7f7;
+    min-height: 100vh;
 }

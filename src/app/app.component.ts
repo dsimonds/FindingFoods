@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { MatDialog } from '@angular/material'
 import { MyDialogComponent } from './my-dialog/my-dialog.component'
+import { FinalResultComponent } from './final-result/final-result.component'
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,7 @@ import { MyDialogComponent } from './my-dialog/my-dialog.component'
 })
 export class AppComponent {
     constructor(private http: Http, public dialog: MatDialog) {}
+    walApiRoot: string = "http://api.walmartlabs.com/v1/";
 
     // openDialog()
     dialogResult: string = "";
@@ -26,10 +29,14 @@ export class AppComponent {
     response: any;
     // itemList = [];
     // imgUrl = [];
-
+    ngOnInit() {
+        console.log('this.itemName');
+        console.log(this.itemName);
+    }
     searchStore() {
-        this.http.get('http://api.walmartlabs.com/v1/stores?format=json&apiKey=cdbxet7ud8j6ad3eyukndug7&zip=' + this.zip)
-        .subscribe (
+        let url = `${this.walApiRoot}stores?format=json&apiKey=cdbxet7ud8j6ad3eyukndug7&zip=${this.zip}`;
+
+        this.http.get(url).subscribe (
             (response) => {
                 this.responseZip = response;
                 console.log(this.responseZip.json())
@@ -51,8 +58,9 @@ export class AppComponent {
     }
 
     itemStoreLookup(storeNumber) {
-        this.http.get('https://search.mobile.walmart.com/v1/products-by-code/UPC/027242901605?storeId=' + storeNumber)
-        .subscribe (
+        let url = `${this.walApiRoot}products-by-code/UPC/027242901605?storeId=${this.storeNumber}`;
+
+        this.http.get(url).subscribe (
             (response) => {
                 this.response = response;
                 console.log('itemStoreLookup(): ')
@@ -64,8 +72,9 @@ export class AppComponent {
 
     // search walmart api for items
     searchItem() {
-        this.http.get('http://api.walmartlabs.com/v1/search?format=json&apiKey=cdbxet7ud8j6ad3eyukndug7&query=' + this.itemName)
-        .subscribe (
+        let url = `${this.walApiRoot}search?format=json&apiKey=cdbxet7ud8j6ad3eyukndug7&query=${this.itemName}`;
+
+        this.http.get(url).subscribe (
             (response) => {
                 this.response = response.json().items;
                 // this.response = response;

@@ -3,16 +3,17 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from './dialog/dialog.component';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FinalResultComponent } from './final-result/final-result.component';
 import {
     MatDialogModule,
     MatCardModule,
     MatButtonModule,
     MatInputModule
 } from '@angular/material/';
-import { FinalResultComponent } from './final-result/final-result.component';
 
 
 @NgModule({
@@ -26,13 +27,14 @@ import { FinalResultComponent } from './final-result/final-result.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DialogComponent],
   bootstrap: [AppComponent],
   entryComponents: [MyDialogComponent]
 })

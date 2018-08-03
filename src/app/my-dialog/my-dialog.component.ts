@@ -16,8 +16,8 @@ export class MyDialogComponent implements OnInit {
     ngOnInit() {
     }
 
-    searchLocalStore(itemNumber, itemName) {
-        this.thisDialogRef.close(itemNumber + " " + itemName)
+    searchLocalStore(itemUpc: number) {
+        this.thisDialogRef.close(itemUpc)
     }
 
     onCloseConfirm() {
