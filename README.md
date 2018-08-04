@@ -1,6 +1,25 @@
 # FindingFoods
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
+
+# Landing Page
+![Index Page](./src/app/assets/01.JPG)
+
+# Search Form
+![Index Page](./src/app/assets/05.JPG)
+
+# Results Dialog
+![Index Page](./src/app/assets/10.JPG)
+
+# Item Found
+![Index Page](./src/app/assets/15.JPG)
+
+# Item Not Found
+![Index Page](./src/app/assets/20.JPG)
+
+# Custom Error
+![Index Page](./src/app/assets/25.JPG)
+
+
 
 ## Development server
 
