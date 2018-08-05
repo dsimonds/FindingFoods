@@ -1,6 +1,9 @@
 <div>
-    <div class="error" *ngIf="isError">
-        <strong>Error:</strong><br>
+    <!-- *ngIf="isError" -->
+    <div class="error" *ngIf="isError" >
+            <span class="float-left"><strong>Error:</strong></span>
+            <span class="float-right"><i class="fas fa-times close-x" (click)="closeWindow()"></i></span>
+        <br>
         {{ errorMessage }}
     </div>
 
@@ -33,28 +36,30 @@
     </div>
 
     <!-- if item is found -->
-    <div class="found" *ngIf="localItemResults != 0 && localItemResults.inStore && localItemResults.common.storePickupAvailable">
-        <strong>Item:</strong> {{ localItemResults.common.name }}
-        <br>
-        <strong>Location:</strong> {{ locationResults.name }}<br>
-        &#8226; {{ locationResults.streetAddress }}, {{ locationResults.city }}, {{ locationResults.zip }}
-        <hr>
-        <span *ngIf="localItemResults.inStore.inventory.available"><strong>In Stock:</strong> Yes</span>
-        <span *ngIf="!localItemResults.inStore.inventory.available"><strong>In Stock:</strong> No</span>
+    <div class="results">
+        <div class="found" *ngIf="localItemResults != 0 && localItemResults.inStore && localItemResults.common.storePickupAvailable">
+            <strong>Item:</strong> {{ localItemResults.common.name }}
+            <br>
+            <strong>Location:</strong> {{ locationResults.name }}<br>
+            <strong>Address:</strong> {{ locationResults.streetAddress }}, {{ locationResults.city }}, {{ locationResults.zip }}
+            <hr>
+            <span *ngIf="localItemResults.inStore.inventory.available"><strong>In Stock:</strong> Yes</span>
+            <span *ngIf="!localItemResults.inStore.inventory.available"><strong>In Stock:</strong> No</span>
 
-        <br>
-        <strong>Quantity:</strong> {{ localItemResults.inStore.inventory.quantity }}<br>
-        <strong>Aisle:</strong> {{ localItemResults.inStore.location.aisles }}<br>
-        <strong>Price:</strong> ${{ localItemResults.inStore.price.ppuCents }}<br>
-    </div>
+            <br>
+            <strong>Quantity:</strong> {{ localItemResults.inStore.inventory.quantity }}<br>
+            <strong>Aisle:</strong> {{ localItemResults.inStore.location.aisles }}<br>
+            <strong>Price:</strong> ${{ localItemResults.inStore.price.ppuCents }}<br>
+        </div>
 
-    <!-- if item is not found -->
-    <div class="not-found" *ngIf="localItemResults != 0 && (!localItemResults.inStore || !localItemResults.common.storePickupAvailable)">
-        <strong>Item not available at the selected location</strong>
-        <br>
-        <strong>Item:</strong> {{ localItemResults.common.name }}
-        <br>
-        <strong>Location:</strong> {{ locationResults.name }}
+        <!-- if item is not found -->
+        <div class="not-found" *ngIf="localItemResults != 0 && (!localItemResults.inStore || !localItemResults.common.storePickupAvailable)">
+            <strong>Item not available at the selected location</strong>
+            <br>
+            <strong>Item:</strong> {{ localItemResults.common.name }}
+            <br>
+            <strong>Location:</strong> {{ locationResults.name }}
+        </div>
     </div>
 
 </div>

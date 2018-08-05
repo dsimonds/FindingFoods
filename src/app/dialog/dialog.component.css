@@ -1,39 +1,20 @@
 .title {
-    /* background-color: #FFFFBB; */
-    /* background: url("../../assets/fruits-grocery-bananas-market-21-9.jpg"); */
+    padding-top: 50px;
     min-width: 100%;
-    /* min-width: 100vw; */
-    /* padding-bottom: 50px; */
     text-align: center;
-    /* position:fixed; */
-    /* left: 0; */
 }
 
 
 .title-hr {
-    border-color: #FF6363;
+    border-color: #FF6363; /* pink */
+    /* border-color: #5F4B66; */ /* purple */
 }
 
 
 .form {
-    /* background-color: #FFFFE2; */
     margin-top: 50px;
     text-align: center;
     font-size: 1.2em;
-
-}
-
-
-/* .text-input {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    border-color: #FF6363;
-} */
-
-.input-label {
-    /* margin-top: 20px; */
-
 }
 
 .text-input-test {
@@ -51,16 +32,13 @@
 }
 
 .text-input-test:focus {
-    /* border: 2px #FF6363 solid; */
     outline: none;
     border: none;
-    /* box-shadow: 0 1px 1px #9de09d inset, 0 0 8px #9de09d; */
     box-shadow: 0 1px 1px #ffb7b7 inset, 0 0 8px #ffb7b7;
 }
 
 .text-input-test:after {
     border: 1px green solid;
-
 }
 
 .search-button {
@@ -68,46 +46,44 @@
     margin-bottom: 20px;
     padding: 10px;
     background-color: #5F4B66;
-    color: white;
+    /* color: white; */
+    color: #f7f7f7;
     border: none;
     border-radius: 100px;
     width: 300px;
-    /* font-size: 1.2em; */
 }
 
 .search-button:hover {
     cursor: pointer;
     background-color: #7f6987;
-
 }
 
 .loading {
     font-size: 1.5em;
 }
-.found {
-    background-color: #c0edc0;
+
+.results{
+    margin-top: 10px;
     text-align: center;
     font-size: 1.3em;
-    border-radius: 50px;
-    padding: 15px;
     color: darkslategrey;
     width: 70%;
     margin-left: auto;
     margin-right: auto;
 }
 
+
+.found {
+    background-color: #c0edc0;
+    border-radius: 50px;
+    padding: 15px;
+}
+
 .not-found {
     /* background-color: #FE5C5C; */
     background-color: #FE8D8D;
-    text-align: center;
-    font-size: 1.3em;
     border-radius: 50px;
     padding: 15px;
-    color: darkslategrey;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    /* opacity: .7; */
 }
 
 
@@ -123,4 +99,22 @@
     font-size: 1.3em;
     box-shadow: 3px 3px #c4aaaa;
     padding: 5px;
+}
+
+
+.close-x {
+     width: 40px;
+}
+
+.close-x:hover {
+    color: white;
+}
+
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
 }

@@ -7,54 +7,12 @@
 
 <!-- <div class="container"> -->
 <div class="main-container">
-<div class="container" id="container">
+    <div class="container" id="container">
 
-    <!-- <img src="../assets/fruits-grocery-bananas-market-21-9.jpg" alt="" style="width:100%"> -->
-    <!-- <h1 class="header">
-        Finding Foods
-    </h1>
-
-    <div class="search form-group">
-        <label for="zip">Zip Code:</label><br>
-        <input type="text" name="zip" class="form-control" placeholder="Zip Code" [(ngModel)]="zip">
-        <button class="btn btn-primary" (click)=searchStore()>Search</button>
-        <div class="response">
-            <p *ngIf="storeList.length > 0"><strong>Nearby Stores:</strong></p>
-            <ul>
-                <li *ngFor="let store of storeList">{{ store }}</li>
-            </ul>
+        <!-- popup window for results -->
+        <div class="dialog">
+            <app-dialog class="app-dialog"></app-dialog>
         </div>
 
-        <br><br>
-    <form>
-        <label for="item">What are you looking for?</label><br>
-        <input type="text" name="item" class="form-control" placeholder="eggs, milk, guarana..." [(ngModel)]="itemName">
-        <button class="btn btn-primary" (click)=searchItem()>Search</button>
-    </form>
-</div> -->
-
-    <!-- popup window for results -->
-    <div class="dialog">
-        <app-dialog class="app-dialog"></app-dialog>
     </div>
-
-    <!-- <div class="final-result">
-        <app-final-result class="final-result"></app-final-result>
-    </div> -->
-
-
-    <!-- <div class="response" *ngIf="response">
-        <ul>
-            <li *ngFor="let item of response">
-                {{ item.name }}
-                <br>{{ item.upc }}
-                <br><img src={{item.imageEntities[item.imageEntities.length-1].thumbnailImage}} alt="">
-            </li>
-        </ul>
-    </div> -->
-
-
-
-
-</div>
 </div>

@@ -29,17 +29,10 @@
 }
 
 .container {
-    /* min-height: 100vh; */
-    /* background-color: #FFFFE2; */
-    /* background-color: #4B5962; */
-    /* opacity: .97; */
-
 
 }
+
 .main-container {
-    /* background: url("../assets/fruits-grocery-bananas-market-21-9.jpg"); */
-    /* background: url("../assets/pexels-photo-811107.jpeg"); */
-    /* background-size: cover; */
     background-color: #f7f7f7;
     min-height: 100vh;
 }

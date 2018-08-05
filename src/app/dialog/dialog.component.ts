@@ -55,7 +55,6 @@ export class DialogComponent implements OnInit {
     constructor(public dialog: MatDialog, private http: Http) {
         this.itemResults = [];
         this.localItemResults = [];
-        // this.locationResults = [];
         this.locationResults = [];
         this.loading = false;
         this.isError = false;
@@ -67,9 +66,7 @@ export class DialogComponent implements OnInit {
 
     action() {
         this.loading = true;
-        // this.openDialog();
         this.validateForm();
-        this.zipSearch();
         // this.itemSearch().then( () => this.loading = false);
     }
 
@@ -180,13 +177,22 @@ export class DialogComponent implements OnInit {
     }
 
 
-    validateForm() {
+    validateForm():boolean {
 
         if (this.zip == '') {
             this.isError = true;
             console.log('Zip missing')
             this.errorMessage = 'Zip missing. Please enter a zip code to search';
             this.loading = false;
+            return false;
+        }
+
+        if (!this.zip.match(/\b^\d{5}(?:[-\s]\d{4})?$\b/)) {
+            this.isError = true;
+            console.log('Zip not valid')
+            this.errorMessage = 'Zip is not correct. Please fix zip code and retry search';
+            this.loading = false;
+            return false;
         }
 
         if (this.itemName == '') {
@@ -194,10 +200,18 @@ export class DialogComponent implements OnInit {
             console.log('Item name missing')
             this.errorMessage = 'Item name missing. Please enter an item to search';
             this.loading = false;
+            return false;
         }
+
+        this.zipSearch();
+        return true;
+
 
     }
 
+    closeWindow() {
+        this.isError = false;
+    }
 
 
 
